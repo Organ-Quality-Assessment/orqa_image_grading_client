@@ -1,1 +1,7 @@
-<p>test works!</p>
+<div *ngIf="error">
+    {{ error }}
+  </div>
+  
+  <ul>
+    <li *ngFor="let i of images">{{ i['attributes']['filename'] }}</li>
+  </ul>
