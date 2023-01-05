@@ -1,7 +1,7 @@
 ---
 name: User story
-about: Add a new user story issue, including a list of tasks which should be included
-  as task issues.
+about: 'Create a user story to describe a feature. Include a list of tasks, that should
+  also be added as task issues. '
 title: 'User Story: '
 labels: ''
 assignees: ''
