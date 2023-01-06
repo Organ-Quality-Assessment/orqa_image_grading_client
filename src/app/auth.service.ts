@@ -1,6 +1,7 @@
 import { Injectable, ɵɵsetComponentScope } from '@angular/core';
 import axios from 'axios';
 import { environment } from 'src/environments/environment';
+import { User } from './models/user';
 
 interface AuthResponse {
   jwt: string;
@@ -20,10 +21,12 @@ export class AuthService {
   //   return this.http.post<AuthResponse>(this.authURL, { identifier, password });
   // }
 
-  register(email: string, password: string) {
+  register(email: string, password: string, username: string) {
+    console.log(email)
     axios.post(this.authURL + '/register', {
       email,
-      password
+      password,
+      username
     })
     .then(response => {
       const returned: AuthResponse = {
@@ -34,7 +37,7 @@ export class AuthService {
       return returned
     })
     .catch(error => {
-      // todo set up error service
+      // todo set up error service and do not progress to next page
       console.log(error)
     })
     
