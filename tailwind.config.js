@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
+const { teal } = require('tailwindcss/colors');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -8,6 +9,7 @@ module.exports = {
     extend: 
     {
       "colors": {
+        primary: teal,
         transparent: 'transparent',
         current: 'currentColor',
         amber: colors.amber,

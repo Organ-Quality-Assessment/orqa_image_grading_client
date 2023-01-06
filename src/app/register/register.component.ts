@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertService } from '../alert/alert.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,7 +12,11 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent {
 public registerForm: FormGroup | any;
 
-constructor(private authService: AuthService) {}
+constructor(
+  private authService: AuthService, 
+  private alertService: AlertService, private router: Router
+  )
+  {}
 
 ngOnInit() {
   this.registerForm = new FormGroup({
@@ -27,6 +33,14 @@ onSubmit() {
     this.registerForm.get('password').value,
     this.registerForm.get('username').value
   )
+  .pipe()
+  .subscribe({
+    next: () => { this.alertService.success('Registration successful', true); this.router.navigate(['/login']) },
+    error: (error) => {console.log('error'); this.alertService.error(error)}
+  }
+  )
+
+
   }
   
 }
