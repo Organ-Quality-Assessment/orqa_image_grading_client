@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertService } from '../alert/alert.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,8 +12,7 @@ export class RegisterComponent {
 public registerForm: FormGroup | any;
 
 constructor(
-  private authService: AuthService, 
-  private alertService: AlertService, private router: Router
+  private authService: AuthService, private router: Router
   )
   {}
 
@@ -35,8 +33,8 @@ onSubmit() {
   )
   .pipe()
   .subscribe({
-    next: () => { this.alertService.success('Registration successful', true); this.router.navigate(['/login']) },
-    error: (error) => {console.log('error'); this.alertService.error(error)}
+    next: () => { console.log('good') },
+    error: (error) => {console.log('error')}
   }
   )
 
