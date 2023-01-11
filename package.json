@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+<<<<<<< HEAD
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.8",
     "angular-material-source": "angular/material",
@@ -32,6 +33,12 @@
     "postcss": "^8.4.21",
     "rxjs": "~7.5.0",
     "tailwind": "^4.0.0",
+=======
+    "autoprefixer": "^10.4.13",
+    "axios": "^1.2.2",
+    "postcss": "^8.4.20",
+    "rxjs": "~7.5.0",
+>>>>>>> c5c94dd1450258b6d4153e336cb4f1b9b520c8ce
     "tailwindcss": "^3.2.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
