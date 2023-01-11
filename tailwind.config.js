@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 module.exports = {
     prefix: '',
     mode: 'jit',
@@ -40,13 +39,3 @@ module.exports = {
       require('@tailwindcss/typography'),
     ],
   };
-=======
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [ "./src/**/*.{html,ts}",],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
->>>>>>> c5c94dd1450258b6d4153e336cb4f1b9b520c8ce
