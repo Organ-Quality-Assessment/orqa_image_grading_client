@@ -13,6 +13,10 @@ interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
+  
+  
+  
+
 
   private authURL = environment.strapi_url + '/auth/local'
 
@@ -37,8 +41,12 @@ export class AuthService {
     return this.http.post<AuthResponse>(this.authURL, { identifier, password });
   }
 
-  checkIfLoggedIn() {
-   // todo
+  isLoggedIn() {
+   if (localStorage.getItem('orqa_token')) {
+    return true
+   } else {
+    return false
+   }
   }   
 
   setSession(authResult: { jwt: string; user: User }) {
