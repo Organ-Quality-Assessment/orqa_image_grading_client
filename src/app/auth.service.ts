@@ -31,29 +31,24 @@ export class AuthService {
       password,
       username
     })
+  }
 
-
-    // console.log(email)
-    // axios.post(, {
-     
-    // })
-    // .then(response => {
-    //   const returned: AuthResponse = {
-    //     jwt: response.data.jwt,
-    //     user: response.data.user
-    //   }
-    //   console.log(returned)
-    //   return returned
-    // })
-    // .catch(error => {
-    //   // todo set up error service and do not progress to next page
-    //   console.log(error)
-    // })
-    
+  login(identifier: string, password: string) {
+    return this.http.post<AuthResponse>(this.authURL, { identifier, password });
   }
 
   checkIfLoggedIn() {
    // todo
   }   
+
+  setSession(authResult: { jwt: string; user: User }) {
+    localStorage.setItem('orqa_token', authResult.jwt)
+    localStorage.setItem('orqa_id', authResult.user.id)
+  }
+
+  endSession() {
+    localStorage.removeItem('token')
+    // todo log user out
+  }
   
 }
