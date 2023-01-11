@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from './../../environment/environment';
 import axios from 'axios';
 
 
@@ -11,13 +12,16 @@ export class TestComponent {
 
   images: any;
   error: any;
+  filepath: any;
 
 
   async ngOnInit() {
     try {
-      const response = await axios.get('http://localhost:1337/api/images');
+      const response = await axios.get(environment.apiUrl+'images');
       this.images = response.data.data;
       console.log(response.data.data)
+      this.filepath = environment.imagePath;
+      console.log(environment.imagePath)
     } catch (error) {
       this.error = error;
     }

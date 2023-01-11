@@ -13,7 +13,7 @@
     <div *ngFor="let img of images; index as i">
       <mat-card class="w-64 m-2 shadow rounded-lg">
         <mat-card-content>{{ img['attributes']['id'] }}</mat-card-content>
-        <a href="grade"><img mat-card-image [src]="'./assets/' + img['attributes']['filename']" alt="" /></a>
+        <a href="grade"><img mat-card-image [src]="filepath + img['attributes']['filename']" alt="" /></a>
         <mat-chip disabled class="w-10">{{ img['attributes']['grade'] }}</mat-chip>
       </mat-card>
     </div>
