@@ -64,4 +64,8 @@ removeAlert() {
   this.message = '';
   this.showAlert = false;
 }
+
+goToPage(page: String) {
+  this.router.navigate([page])
+}
 }
