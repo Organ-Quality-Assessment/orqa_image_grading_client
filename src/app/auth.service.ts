@@ -14,8 +14,8 @@ interface AuthResponse {
 })
 export class AuthService {
   
-  
-  
+  // keep track of requested page
+  public redirectPage: String;
 
 
   private authURL = environment.strapi_url + '/auth/local'
@@ -28,6 +28,14 @@ export class AuthService {
   //   return this.http.post<AuthResponse>(this.authURL, { identifier, password });
   // }
 
+
+  getRedirectPage() {
+    return this.redirectPage;
+  }
+
+  setRedirectPage(newPage: String) {
+    this.redirectPage = newPage
+  }
 
   register(email: string, password: string, username: string) {
     return this.http.post(this.authURL + '/register', {

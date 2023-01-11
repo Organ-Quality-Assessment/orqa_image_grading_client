@@ -11,10 +11,15 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
+      // get page requested and strip 
+      const requestedPage = state.url.substring(1)
+
     if (this.authService.isLoggedIn()) {
+      this.authService.setRedirectPage('')
       return true;
     } else {
-      // todo save page requesting so can return there after loggin in
+      // remember where user wanted to go
+      this.authService.setRedirectPage(requestedPage)
       this.router.navigate(['login'])
       return false;
     }

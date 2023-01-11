@@ -40,7 +40,17 @@ constructor(
         next: (resp) => { 
           // handle jwt
           this.authService.setSession(resp)
-          this.router.navigate([''])
+      
+          if (this.authService.getRedirectPage() && this.authService.getRedirectPage().length > 0)  {
+            // navigate back to requested page
+            const page = this.authService.getRedirectPage()
+            // reset reqested page
+            this.authService.setRedirectPage('')
+            this.router.navigate([page])
+          } else {
+            this.router.navigate([''])
+          }
+          
         },
         error: (error) => {
           console.log(error); 
