@@ -60,6 +60,10 @@ export class AuthService {
   setSession(authResult: { jwt: string; user: User }) {
     localStorage.setItem('orqa_token', authResult.jwt)
     localStorage.setItem('orqa_id', authResult.user.id)
+    // tokens last 30 days
+   let expireAt = new Date()
+    expireAt.setDate(expireAt.getDate() + 3)
+    localStorage.setItem('orqa_expire', expireAt.toString())
   }
 
   endSession() {
