@@ -40,6 +40,7 @@ this.removeAlert();
   .pipe()
   .subscribe({
     next: () => { 
+      this.message = 'success'
       this.router.navigate(['login'])
     },
     error: (error) => {
