@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import axios from 'axios';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-test',
@@ -15,7 +15,7 @@ export class TestComponent {
 
   async ngOnInit() {
     try {
-      const response = await axios.get('http://localhost:1337/api/images');
+      const response = await axios.get(environment.strapi_url + '/images');
       this.images = response.data.data;
       console.log(response.data.data)
     } catch (error) {
