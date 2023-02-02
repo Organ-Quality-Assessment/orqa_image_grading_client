@@ -10,7 +10,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-import { GradingComponent } from './grading/grading.component';
+import { LivergradingComponent } from './livergrading/livergrading.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { GradingComponent } from './grading/grading.component';
     TestComponent,
     RegisterComponent,
     LoginComponent,
-    GradingComponent
+    LivergradingComponent
   ],
   imports: [
     BrowserModule,

@@ -48,7 +48,8 @@ constructor(
             this.authService.setRedirectPage('')
             this.router.navigate([page])
           } else {
-            this.router.navigate([''])
+            // this won't be the route but for now got to liver
+            this.router.navigate(['liver'])
           }
           
         },
