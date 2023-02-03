@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { LivergradingComponent } from './livergrading/livergrading.component';
+import { ComparisonComponent } from './comparison/comparison.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LivergradingComponent } from './livergrading/livergrading.component';
     TestComponent,
     RegisterComponent,
     LoginComponent,
-    LivergradingComponent
+    LivergradingComponent,
+    ComparisonComponent
   ],
   imports: [
     BrowserModule,
