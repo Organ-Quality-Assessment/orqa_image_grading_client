@@ -44,7 +44,7 @@ constructor(
   // todo note that currently media in strapi is unsecured, eventually need to rectify this/ use oracle bucket direct access
   this.gradingService.getListOfAllImages().then((result) => {
     
-    this.imagesToGrade =  _.filter(result.data, function(o) {return o.attributes.organ.data.attributes.organ_type == 'liver'})
+    this.imagesToGrade =  _.filter(result.data, function(o) {return (o.attributes.organ.data.attributes.organ_type == 'liver' && o.attributes.real == true)})
     this.numberImages = this.imagesToGrade.length
    
 
