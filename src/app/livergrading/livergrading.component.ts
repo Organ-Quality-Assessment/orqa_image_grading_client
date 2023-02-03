@@ -98,4 +98,16 @@ submit() {
 
 }
 
+skipToQuestions() {
+    this.router.navigate(['questions'])
+}
+
+skipToComparison() {
+  this.router.navigate(['comparison'])
+}
+
+logout() {
+  // todo log out
+}
+
 }
