@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { ComparisonService } from '../comparison.service';
 import * as _ from 'lodash'
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-comparison',
@@ -16,7 +17,7 @@ numberToShow = 2;
 errorMessage: String;
 url=environment.strapi_image_url;
 
-constructor(private comparisonService: ComparisonService, private router: Router) {}
+constructor(private comparisonService: ComparisonService, private router: Router, private authService: AuthService) {}
 
 ngOnInit() {
   // todo note that currently media in strapi is unsecured, eventually need to rectify this/ use oracle bucket direct access
@@ -56,7 +57,6 @@ skipToQuestions() {
 }
 
 logout() {
-  // todo
+  this.authService.logout()
 }
-
 }

@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { ComparisonComponent } from './comparison/comparison.component';
 import { LivergradingComponent } from './livergrading/livergrading.component';
 import { LoginComponent } from './login/login.component';
+import { QuestionsComponent } from './questions/questions.component';
 import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'liver', component: LivergradingComponent},
   {path:'comparison', component: ComparisonComponent},
+  {path:'questions', component: QuestionsComponent},
   {path:'', component: LoginComponent}
 ];
 

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JsonPipe } from '@angular/common';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-livergrading',
@@ -23,7 +24,8 @@ errorMessage: String;
 constructor(
   private gradingService: GradingService, 
   private route: ActivatedRoute,
-  private router: Router
+  private router: Router,
+  private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -107,7 +109,7 @@ skipToComparison() {
 }
 
 logout() {
-  // todo log out
+  this.authService.logout()
 }
 
 }
