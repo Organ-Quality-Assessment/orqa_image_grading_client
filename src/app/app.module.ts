@@ -12,6 +12,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { LivergradingComponent } from './livergrading/livergrading.component';
 import { ComparisonComponent } from './comparison/comparison.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ComparisonComponent } from './comparison/comparison.component';
     RegisterComponent,
     LoginComponent,
     LivergradingComponent,
-    ComparisonComponent
+    ComparisonComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
