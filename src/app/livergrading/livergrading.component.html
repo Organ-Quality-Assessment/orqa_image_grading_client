@@ -1,3 +1,4 @@
+
 <div class="columns-2 mx-2" *ngIf="imagesToGrade">
     <!-- <p >{{imagesToGrade[currentImage]['attributes']['filename']}}</p> -->
 <section class="grid h-screen place-items-center">
@@ -34,6 +35,11 @@
             </button>
           
       </form>
+      <p class="text-red-700" *ngIf="errorMessage">
+    {{errorMessage}}
+</p>
 </section>
 
 </div>
+
+

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import * as _ from 'lodash'
 import { firstValueFrom, lastValueFrom, Observable } from 'rxjs';
 import { List } from 'postcss/lib/list';
+import { map } from 'rxjs/operators';
 
 interface ListResponse {
   data: any;
@@ -24,6 +25,28 @@ export class GradingService {
 
 
 
+  }
+
+  submitLiverScore(quality: number, transplantable: boolean, image: any) {
+    // to do get logged in user and add to update
+    // to do pass image too
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.getSession().token,
+      'content-type': 'application/json'
+    })
+
+    const data = {
+      data: {
+        quality,
+     transplantable,
+     image
+      }     
+   }
+   console.log(data)   
+  
+
+    // return this.http.post(this.URL + '/liver-scores', data, {headers: headers}).pipe(map(res => res))
+    return this.http.post(this.URL + '/liver-scores', data, {headers: headers})
   }
 
   async getListOfAllImages():Promise<ListResponse> {

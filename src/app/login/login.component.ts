@@ -38,6 +38,7 @@ constructor(
       .pipe()
       .subscribe({
         next: (resp) => { 
+          console.log(resp)
           // handle jwt
           this.authService.setSession(resp)
       
@@ -46,10 +47,13 @@ constructor(
             const page = this.authService.getRedirectPage()
             // reset reqested page
             this.authService.setRedirectPage('')
+            // pass user onto next page
+            
             this.router.navigate([page])
           } else {
-            // this won't be the route but for now got to liver
-            this.router.navigate(['liver'])
+            // this won't be the route but for now got to liver          
+            // this.router.navigate(['liver'], { queryParams: { user: JSON.stringify(resp.user)}})
+            this.router.navigate(['liver'], { queryParams: { user: JSON.stringify(resp.user)}})
           }
           
         },
