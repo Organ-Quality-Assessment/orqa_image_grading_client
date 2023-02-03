@@ -28,8 +28,7 @@ export class GradingService {
   }
 
   submitLiverScore(quality: number, transplantable: boolean, image: any) {
-    // to do get logged in user and add to update
-    // to do pass image too
+    
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + this.getSession().token,
       'content-type': 'application/json'
@@ -42,7 +41,7 @@ export class GradingService {
      image
       }     
    }
-   console.log(data)   
+
   
 
     // return this.http.post(this.URL + '/liver-scores', data, {headers: headers}).pipe(map(res => res))
@@ -63,6 +62,7 @@ export class GradingService {
 
 
 
+
   getSession() {
     // todo if these items are not there or token is expired, redirect to login
     return {
@@ -70,4 +70,6 @@ export class GradingService {
       id: localStorage.getItem('orqa_id')
     }
   }
+
+  
 }

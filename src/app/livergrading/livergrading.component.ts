@@ -14,10 +14,10 @@ import { JsonPipe } from '@angular/common';
 export class LivergradingComponent {
 imagesToGrade: any;
 currentImage= 0;
-numberImages: number;
+numberImages=2;
 url=environment.strapi_image_url
 public form: FormGroup
-user: any;
+
 errorMessage: String;
 
 constructor(
@@ -45,7 +45,7 @@ constructor(
   this.gradingService.getListOfAllImages().then((result) => {
     
     this.imagesToGrade =  _.filter(result.data, function(o) {return (o.attributes.organ.data.attributes.organ_type == 'liver' && o.attributes.real == true)})
-    this.numberImages = this.imagesToGrade.length
+    
    
 
     // create form
