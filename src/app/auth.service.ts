@@ -3,6 +3,7 @@ import axios from 'axios';
 import { environment } from 'src/environments/environment';
 import { User } from './models/user';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 interface AuthResponse {
   jwt: string;
@@ -20,7 +21,7 @@ export class AuthService {
 
   private authURL = environment.strapi_url + '/auth/local'
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // login(email: string, password: string) {
     
@@ -67,8 +68,16 @@ export class AuthService {
   }
 
   endSession() {
-    localStorage.removeItem('token')
-    // todo log user out
+    localStorage.removeItem('orqa_token')
+    localStorage.removeItem('orqa_id')
+    localStorage.removeItem('orqa_expire')
+   
+
+  }
+
+  logout() {
+    this.endSession()
+    this.router.navigate(['register'])
   }
   
 }
