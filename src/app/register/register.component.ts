@@ -18,6 +18,8 @@ constructor(
   )
   {}
 
+  // todo can we just generate a random username since it is not used to log in?
+
 ngOnInit() {
   this.showAlert = false;
   this.message = '';
