@@ -4,7 +4,7 @@ ADD . /usr/local/app
 WORKDIR /usr/local/app
 RUN npm install -g @angular/cli && npm install --force
 RUN npm rebuild node-sass
-RUN ng build --prod="true"
+RUN ng build --configuraton production
 
 FROM nginx
 COPY --from=builder /usr/local/app/dist/sisc-decision-support-tool2 /usr/share/nginx/html/
