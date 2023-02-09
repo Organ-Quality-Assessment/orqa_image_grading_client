@@ -45,7 +45,7 @@ export class GradingService {
   
 
     // return this.http.post(this.URL + '/liver-scores', data, {headers: headers}).pipe(map(res => res))
-    return this.http.post(this.URL + '/liver-scores', data, {headers: headers})
+    return this.http.post(this.URL + '/scores', data, {headers: headers})
   }
 
   async getListOfAllImages():Promise<ListResponse> {
