@@ -60,6 +60,17 @@ export class GradingService {
     return await lastValueFrom(get)
   }
 
+  async getImagesToGrade(organs) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.getSession().token
+    })
+    const params = new HttpParams().set('organs', organs)
+    const options = {headers: headers, params}
+
+    const get = this.http.get(this.URL + '/images/imagesToGrade', options)
+    return await lastValueFrom(get)
+  }
+
 
 
 
