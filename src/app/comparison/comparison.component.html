@@ -35,8 +35,8 @@
 
 <div class="mx-2" *ngIf="images&& images.length > 0">
    <!--  todo make image fill space and be responsive and not overflow screen -->
-    <img  src="{{url + images[currentImage]['attributes']['image_file']['data']['attributes']['url']}}">
-
+    <!-- <img  src="{{url + images[currentImage]['attributes']['image_file']['data']['attributes']['url']}}"> -->
+    <img  [src]="this.currentImageUrl">
     <div class="p-2 flex">
         <div class="w-1/2 flex justify-end">
             <button (click)="submit('real')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  w-auto">
