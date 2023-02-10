@@ -1,0 +1,25 @@
+::ng-deep .ngx-slider .ngx-slider-pointer{
+  
+ 
+    background-color: rgb(15 118 110) !important;
+
+
+}  
+
+::ng-deep .ngx-slider .ngx-slider-bubble.ngx-slider-limit {
+  
+ display: none;
+
+} 
+
+::ng-deep .ngx-slider .ngx-slider-bubble.ngx-slider-floor {
+  
+    display: none;
+   
+   } 
+
+   ::ng-deep .ngx-slider .ngx-slider-bubble  {
+  
+    display: none !important;
+   
+   } 

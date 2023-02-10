@@ -7,6 +7,7 @@ import * as _ from 'cypress/types/lodash';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { GradingService } from '../grading.service';
+import { Options } from '@m0t0r/ngx-slider';
 
 @Component({
   selector: 'app-grading',
@@ -21,8 +22,31 @@ export class GradingComponent {
   public form: FormGroup
   organsToGradeString:any;
 
+  test;
   
   errorMessage: String;
+
+  //slider
+  
+  options: Options = {
+    floor: 0,
+    ceil: 5,
+    step: 0.25,
+    showTicks: true,
+    stepsArray: [
+      {value: 0, legend: 'None'},
+      {value: 0.5},
+      {value: 1},
+      {value: 1.5, legend: 'Mild'},
+      {value: 2},
+      {value: 2.5},
+      {value: 3},
+      {value: 3.5, legend: 'Moderate'},
+      {value: 4},
+      {value: 4.5},
+      {value: 5, legend: 'Severe'},
+    ]
+  };
 
   // current image to grade
   organType;
@@ -96,7 +120,7 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
     nextImage() {
       if (this.currentImage == this.numberImages-1) {
         // we are at the end
-        console.log('no more images')
+        this.router.navigate(['comparison'])
       } else {
         this.currentImage +=1;
         this.organType = this.imagesToGrade[this.currentImage].organ.organ_type

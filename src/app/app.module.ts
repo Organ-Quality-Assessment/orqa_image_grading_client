@@ -13,6 +13,7 @@ import { AuthGuard } from './auth.guard';
 import { ComparisonComponent } from './comparison/comparison.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { GradingComponent } from './grading/grading.component';
+import { NgxSliderModule } from '@m0t0r/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GradingComponent } from './grading/grading.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSliderModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
