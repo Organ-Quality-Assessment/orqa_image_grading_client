@@ -10,9 +10,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-import { LivergradingComponent } from './livergrading/livergrading.component';
 import { ComparisonComponent } from './comparison/comparison.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { GradingComponent } from './grading/grading.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,9 @@ import { QuestionsComponent } from './questions/questions.component';
     TestComponent,
     RegisterComponent,
     LoginComponent,
-    LivergradingComponent,
     ComparisonComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    GradingComponent
   ],
   imports: [
     BrowserModule,

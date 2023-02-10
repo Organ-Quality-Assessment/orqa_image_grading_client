@@ -62,12 +62,12 @@ https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionslogintoocir.
 
 docker login lhr.ocir.io
 
-userame in this format lrrho0j0b1ox/oracleidentitycloudservice/kate.court@ncl.ac.uk
+username in this format lrrho0j0b1ox/oracleidentitycloudservice/kate.court@ncl.ac.uk
 password is from the auth token you generated
 
 build docker image using tag format required br container registry
 
-docker build -t docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .
+docker build -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .
 
 push to registry
 
@@ -121,6 +121,8 @@ Please cite the associated papers for this work if you use this code:
 
 ## Acknowledgements
 This work was funded by a grant from the UK Research Councils, EPSRC grant ref. EP/L012345/1, “Example project title, please update”.
+
+
 
 
 
