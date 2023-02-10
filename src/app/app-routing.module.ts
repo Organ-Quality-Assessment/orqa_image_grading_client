@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'comparison', component: ComparisonComponent},
   {path:'questions', component: QuestionsComponent},
   {path:'grading', component: GradingComponent},
-  {path:'', component: LoginComponent}
+  {path:'', component: RegisterComponent}
 ];
 
 @NgModule({
