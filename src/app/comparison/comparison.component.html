@@ -32,24 +32,31 @@
         Finish</button>
   </nav>
   
-
-<div class="mx-2" *ngIf="images&& images.length > 0">
+<!-- Image -->
+<div class="mx-2 grid grid-cols-1" *ngIf="images&& images.length > 0">
    <!--  todo make image fill space and be responsive and not overflow screen -->
     <!-- <img  src="{{url + images[currentImage]['attributes']['image_file']['data']['attributes']['url']}}"> -->
-    <img  [src]="this.currentImageUrl">
-    <div class="p-2 flex">
-        <div class="w-1/2 flex justify-end">
+    <div class="col-span-1">
+ <img class="w-full" [src]="this.currentImageUrl">
+    </div>
+ 
+    <!-- Answers -->
+    <footer class="fixed bottom-0 w-full p-2 bg-white rounded-lg shadow flex items-center justify-center md:p-2 dark:bg-gray-800">
+      
+        <div class="inline-flex w-full justify-center">
             <button (click)="submit('real')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  w-auto">
                Real
             </button>
-            <button (click)="submit('artificial')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded w-auto ">
-                Artificial
+            <button (click)="submit('artificial')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  ">
+                AI Generated
             </button>
             <button (click)="submit('unsure')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  w-auto ">
                 Unsure
             </button>
         </div>
-    </div>
+ 
+    </footer>
+   
 
 {{errorMessage}}
 </div>
