@@ -48,7 +48,7 @@ export class GradingService {
   //   return this.http.post(this.URL + '/scores', data, {headers: headers})
   // }
 
-  submitScore(perfusion: any, steatosis: any, transplantable: boolean, image: any) {
+  submitScore(perfusion: any, steatosis: any, transplantable: boolean, image: any, skip: any) {
     
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + this.getSession().token,
@@ -61,7 +61,8 @@ export class GradingService {
        steatosis,
        perfusion,
      transplantable,
-     image
+     image,
+     skip
       }     
    }
    console.log(data)

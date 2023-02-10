@@ -79,6 +79,20 @@
             <button (click)="submit()" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
               Submit
             </button>
+            <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+            <!-- SKIP OPTION -->
+            <div class="mb-6">
+                <label for="skip" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">If you would like to skip this image, please tell us why?</label>
+                <select formControlName="skip" id="skip" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option selected>Choose a reason</option>
+                  <option  value="image quality">Image quality</option>
+                  <option  value="lighting">Lighting</option>
+                  <option  value="partially visible">Organ only partially visible</option>
+                  <option  value="other">Other</option>
+                </select>   </div>
+                <button (click)="skip()" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+                   Skip
+                  </button>
           
       </form>
       <p class="text-red-700" *ngIf="errorMessage">

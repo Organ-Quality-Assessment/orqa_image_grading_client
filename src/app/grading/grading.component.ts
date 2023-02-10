@@ -68,7 +68,9 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
       this.form = new FormGroup({
         steatosis: new FormControl(2.5, [Validators.required]),
         perfusion: new FormControl(2.5, [Validators.required]),
-        transplantable: new FormControl(true, Validators.required)
+        transplantable: new FormControl(true, Validators.required),
+        skip: new FormControl()
+  
       })
   
       
@@ -85,7 +87,7 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
   
     const response = await axios.get(environment.strapi_url + '/images/imageFromFilename/' + image.filename, config);
     let objectUrl= 'data:image/jpg;base64,' + response.data;
-    console.log(response)
+
     return this.sanitizer.bypassSecurityTrustUrl(objectUrl)
   }
 
@@ -107,18 +109,42 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
       this.form = new FormGroup({
         steatosis: new FormControl(2.5, [Validators.required]),
         perfusion: new FormControl(2.5, [Validators.required]),
-        transplantable: new FormControl(true, Validators.required)
+        transplantable: new FormControl(true, Validators.required),
+        skip: new FormControl()
       })
+    }
+
+    skip() {
+      // set all forms fields to null other than skip
+      if(!this.form.get('skip').value) {
+        //default is other
+        this.form.get('skip').setValue('other')
+      }
+      // set other values to null
+      this.form.get('perfusion').setValue(null)
+      this.form.get('steatosis').setValue(null)
+      this.form.get('transplantable').setValue(null)
+
+      this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage], this.form.get('skip').value)
+    .subscribe({
+      next: (resp) => {
+        this.nextImage();
+      },
+      error: (error) => {
+          this.errorMessage = error.message
+      }
+    })
     }
   
   submit() {
-
+    // set skip to null as not skipping
+    this.form.get('skip').setValue(null)
 // different fields depending on organ type
 if (this.organType === 'liver') {
   // steatosis, perfusion and transplantable
   if (this.form.get('steatosis').valid && this.form.get('perfusion').valid && this.form.get('transplantable').valid) {
     // submit scores, image, organ and user to strapi
-    this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage])
+    this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage], this.form.get('skip').value)
     .subscribe({
       next: (resp) => {
         this.nextImage();
@@ -135,7 +161,7 @@ if (this.organType === 'liver') {
   if (this.form.get('steatosis').valid  && this.form.get('transplantable').valid) {
     // submit scores, image, organ and user to strapi
     this.form.get('perfusion').setValue(null)
-    this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage])
+    this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage], this.form.get('skip').value)
     .subscribe({
       next: (resp) => {
         this.nextImage();
@@ -153,7 +179,7 @@ if (this.organType === 'liver') {
   if (this.form.get('perfusion').valid  && this.form.get('transplantable').valid) {
     // submit scores, image, organ and user to strapi
     this.form.get('steatosis').setValue('null')
-    this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage])
+    this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage], this.form.get('skip').value)
     .subscribe({
       next: (resp) => {
         this.nextImage();
