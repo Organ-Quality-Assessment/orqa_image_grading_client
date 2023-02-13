@@ -13,9 +13,9 @@ const routes: Routes = [
   {path: 'test', component: TestComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
-  {path:'comparison', component: ComparisonComponent},
-  {path:'questions', component: QuestionsComponent},
-  {path:'grading', component: GradingComponent},
+  {path:'comparison', component: ComparisonComponent, canActivate: [AuthGuard]},
+  {path:'questions', component: QuestionsComponent, canActivate: [AuthGuard]},
+  {path:'grading', component: GradingComponent, canActivate: [AuthGuard]},
   {path:'', component: RegisterComponent}
 ];
 
