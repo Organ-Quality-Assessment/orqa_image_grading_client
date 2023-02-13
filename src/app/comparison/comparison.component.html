@@ -15,7 +15,7 @@
       <li  aria-current="page">
         <div class="flex items-center">
           <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-          <span class="ml-1 text-sm font-medium text-primary-500 md:ml-2 dark:text-primary-400">Real vs artifical comparison</span>
+          <span class="ml-1 text-sm font-medium text-primary-500 md:ml-2 dark:text-primary-400">Real vs AI generated</span>
         </div>
       </li>
       <li (click)='skipToQuestions()' aria-current="page">
@@ -32,24 +32,31 @@
         Finish</button>
   </nav>
   
-
-<div class="mx-2" *ngIf="images&& images.length > 0">
+<!-- Image -->
+<div class="mx-2 grid grid-cols-1" *ngIf="images&& images.length > 0">
    <!--  todo make image fill space and be responsive and not overflow screen -->
-    <img  src="{{url + images[currentImage]['attributes']['image_file']['data']['attributes']['url']}}">
-
-    <div class="p-2 flex">
-        <div class="w-1/2 flex justify-end">
+    <!-- <img  src="{{url + images[currentImage]['attributes']['image_file']['data']['attributes']['url']}}"> -->
+    <div class="col-span-1">
+ <img class="w-full" [src]="this.currentImageUrl">
+    </div>
+ 
+    <!-- Answers -->
+    <footer class="fixed bottom-0 w-full p-2 bg-white rounded-lg shadow flex items-center justify-center md:p-2 dark:bg-gray-800">
+      
+        <div class="inline-flex w-full justify-center">
             <button (click)="submit('real')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  w-auto">
                Real
             </button>
-            <button (click)="submit('artificial')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded w-auto ">
-                Artificial
+            <button (click)="submit('artificial')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  ">
+                AI Generated
             </button>
             <button (click)="submit('unsure')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  w-auto ">
                 Unsure
             </button>
         </div>
-    </div>
+ 
+    </footer>
+   
 
 {{errorMessage}}
 </div>

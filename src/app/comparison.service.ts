@@ -32,6 +32,17 @@ private URL = environment.strapi_url
     return await lastValueFrom(get)
   }
 
+  async getRealAndArtificialImages() {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.getSession().token
+    })
+    
+    const options = {headers: headers}
+
+    const get = this.http.get(this.URL + '/images/realAndArtificalImages', options)
+    return await lastValueFrom(get)
+  }
+
   getSession() {
     // todo if these items are not there or token is expired, redirect to login
     return {

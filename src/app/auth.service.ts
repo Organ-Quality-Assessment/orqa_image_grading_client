@@ -38,11 +38,40 @@ export class AuthService {
     this.redirectPage = newPage
   }
 
-  register(email: string, password: string, username: string) {
-    return this.http.post(this.authURL + '/register', {
-       email,
+  register(email: string, password: string, username: string, name: string,
+    institution: any, job: any, experience: any, task: any,
+    liver: boolean, pancreas: boolean, kidney: boolean, thoracic: boolean, contactable: boolean) {
+   
+   const data = {
+    email,
       password,
-      username
+      username,
+      name,
+      institution,
+      job,
+      experience,
+      task,
+      liver,
+      pancreas,
+      kidney,
+      thoracic,
+      contactable
+   }
+   console.log(data)
+      return this.http.post(this.authURL + '/register', {
+        email,
+        password,
+        username,
+        name,
+        institution,
+        job,
+        experience,
+        task,
+        liver,
+        pancreas,
+        kidney,
+        thoracic,
+        contactable
     })
   }
 

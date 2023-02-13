@@ -27,25 +27,48 @@ export class GradingService {
 
   }
 
-  submitLiverScore(quality: number, transplantable: boolean, image: any) {
+  // submitLiverScore(quality: number, transplantable: boolean, image: any) {
+    
+  //   const headers = new HttpHeaders({
+  //     'Authorization': 'Bearer ' + this.getSession().token,
+  //     'content-type': 'application/json'
+  //   })
+
+  //   const data = {
+  //     data: {
+  //       quality,
+  //    transplantable,
+  //    image
+  //     }     
+  //  }
+
+  
+
+  //   // return this.http.post(this.URL + '/liver-scores', data, {headers: headers}).pipe(map(res => res))
+  //   return this.http.post(this.URL + '/scores', data, {headers: headers})
+  // }
+
+  submitScore(perfusion: any, steatosis: any, transplantable: boolean, image: any, skip: any) {
     
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + this.getSession().token,
       'content-type': 'application/json'
     })
 
+
     const data = {
       data: {
-        quality,
+       steatosis,
+       perfusion,
      transplantable,
-     image
+     image,
+     skip
       }     
    }
-
-  
+   console.log(data)
 
     // return this.http.post(this.URL + '/liver-scores', data, {headers: headers}).pipe(map(res => res))
-    return this.http.post(this.URL + '/liver-scores', data, {headers: headers})
+    return this.http.post(this.URL + '/scores', data, {headers: headers})
   }
 
   async getListOfAllImages():Promise<ListResponse> {
@@ -57,6 +80,17 @@ export class GradingService {
     const options = {headers: headers, params}
 
     const get = this.http.get<ListResponse>(this.URL + '/images', options)
+    return await lastValueFrom(get)
+  }
+
+  async getImagesToGrade(organs) {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.getSession().token
+    })
+    const params = new HttpParams().set('organs', organs)
+    const options = {headers: headers, params}
+
+    const get = this.http.get(this.URL + '/images/imagesToGrade', options)
     return await lastValueFrom(get)
   }
 

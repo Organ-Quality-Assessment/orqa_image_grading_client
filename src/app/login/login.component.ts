@@ -51,9 +51,13 @@ constructor(
             
             this.router.navigate([page])
           } else {
-            // this won't be the route but for now got to liver          
-            // this.router.navigate(['liver'], { queryParams: { user: JSON.stringify(resp.user)}})
-            this.router.navigate(['liver'], { queryParams: { user: JSON.stringify(resp.user)}})
+            const organString = this.buildStringFromCheckedOrgansCurrentlyGrading(resp['user'])
+
+            // look at what organs people have said they would grade and add to navigation
+            this.router.navigate(['grading'],
+            {queryParams: {organs: organString}})
+
+    
           }
           
         },
@@ -74,6 +78,21 @@ constructor(
       }
       
     }
+
+    buildStringFromCheckedOrgansCurrentlyGrading(user) {
+      let organList =[]
+      if (user['liver']) {
+        organList.push('liver')
+      }
+      if (user['kidney']) {
+        organList.push('kidney')
+      }
+      let listString = organList.join(',')
+   
+      return listString
+      // todo in future as we add images to the tool expand on this
+    }
+
     removeAlert() {
       this.message = '';
       this.showAlert = false;
