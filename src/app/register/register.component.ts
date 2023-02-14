@@ -100,7 +100,7 @@ this.removeAlert();
   .subscribe({
     next: (result) => { 
       this.message = 'success'
-      console.log(result)
+     
 
 // login user
 this.authService.login(this.registerForm.get('email').value,
