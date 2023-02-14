@@ -203,7 +203,7 @@ if (this.organType === 'liver') {
   // perfusion and transplantable 
   if (this.form.get('perfusion').valid  && this.form.get('transplantable').valid) {
     // submit scores, image, organ and user to strapi
-    this.form.get('steatosis').setValue('null')
+    this.form.get('steatosis').setValue(null)
     this.gradingService.submitScore(this.form.get('perfusion').value, this.form.get('steatosis').value, this.form.get('transplantable').value, this.imagesToGrade[this.currentImage], this.form.get('skip').value)
     .subscribe({
       next: (resp) => {
