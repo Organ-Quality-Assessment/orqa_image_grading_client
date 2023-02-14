@@ -38,7 +38,7 @@ constructor(
       .pipe()
       .subscribe({
         next: (resp) => { 
-          console.log(resp)
+         
           // handle jwt
           this.authService.setSession(resp)
       
