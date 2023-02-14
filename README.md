@@ -54,28 +54,32 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 Deploying to a production style setup but on the local system. Examples of this would include `venv`, `anaconda`, `Docker` or `minikube`. 
 
 ### Production
-Generate an auth token
+
+#### Creating a container instance on Oracle Cloud
+
+
+1. Generate an auth token
 https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsgenerateauthtokens.htm 
 
-Log into docker with oracle creds:
+2. Log into docker with oracle creds:
 https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionslogintoocir.htm
 
-docker login lhr.ocir.io
+`docker login lhr.ocir.io`
 
 username in this format lrrho0j0b1ox/oracleidentitycloudservice/kate.court@ncl.ac.uk
 password is from the auth token you generated
 
-build docker image using tag format required br container registry
+3. build docker image using tag format required br container registry
 
-docker build -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .
+`docker build -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .`
 
-push to registry
+4. push to registry
 
-docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest
+`docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest`
 
-I then had to move to the development compartment as this appeared in root - perhaps the naming is wrong here?
-
-Create container instance and provide the username and password you used when logging in through docker
+NB: We then had to move to the development compartment as this appeared in root
+- check on the Oracle cloud whether the container has been pushed to the correct
+  compartment. It is easily moved using the UI if not.
 
 Longer term, look at putting in a github action, this might help: https://github.com/oracle-actions/login-ocir 
 
