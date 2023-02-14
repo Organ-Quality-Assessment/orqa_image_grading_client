@@ -84,6 +84,7 @@ export class GradingComponent {
   
   
   this.numberImages= this.imagesToGrade.length
+  console.log(this.numberImages)
 this.organType = this.imagesToGrade[0].organ.organ_type
 this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
  })
@@ -118,14 +119,14 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
 
 
   
-    nextImage() {
+    async nextImage() {
       if (this.currentImage == this.numberImages-1) {
         // we are at the end
         this.router.navigate(['comparison'])
       } else {
         this.currentImage +=1;
         this.organType = this.imagesToGrade[this.currentImage].organ.organ_type
-  
+  this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[this.currentImage])
         this.resetForm()
       }
     }
