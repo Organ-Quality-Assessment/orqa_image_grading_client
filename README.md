@@ -80,8 +80,18 @@ password is from the auth token you generated
 NB: We then had to move to the development compartment as this appeared in root
 - check on the Oracle cloud whether the container has been pushed to the correct
   compartment. It is easily moved using the UI if not.
-
+  
+If you already have a container instance set up based on the container registry you pushed, then you will need to restart that container. If you do not, see below instructions for creating one.
 Longer term, look at putting in a github action, this might help: https://github.com/oracle-actions/login-ocir 
+
+#### Creating a Container Instance
+
+In the Oracle Cloud web interface select Container Instances, check that you are in the correct compartment (i.e. production or development) and then click create. Ensure you are in the correct VCN and in the public subnet. 
+When you get to selecting a container image, the images you have pushed to the container registry should show up. If they do not then check they are in the correct compartment. If you have issues with permissions then the container registery can be changed from private (default) to public. There are no environment variables needed for this client. 
+
+To ensure that your container instance is working, you can view logs by navgating to the container instance page, then in the left hand menu under 'Resources' select containers, and click on the container you have just created. Under 'more actions' you can select to 'view logs'.
+
+The container will have a public IP address associated with it. Go to the IP in your browser to view the client.
 
 ## Usage
 
