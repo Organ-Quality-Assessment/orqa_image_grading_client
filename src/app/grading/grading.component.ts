@@ -48,6 +48,25 @@ export class GradingComponent {
     ]
   };
 
+  perfusionOptions: Options = {
+    floor: 0,
+    ceil: 5,
+    step: 0.25,
+    showTicks: true,
+    stepsArray: [
+      {value: 0, legend: 'Poorly perfused'},
+      {value: 0.5},
+      {value: 1},
+      {value: 1.5},
+      {value: 2},
+      {value: 2.5},
+      {value: 3},
+      {value: 3.5},
+      {value: 4},
+      {value: 4.5},
+      {value: 5, legend: 'Well perfused'},
+    ]
+  };
   // current image to grade
   organType;
   currentImageUrl;

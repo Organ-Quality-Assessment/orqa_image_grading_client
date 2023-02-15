@@ -45,7 +45,7 @@
 <section class="mr-5">
     <form [formGroup]="form" >
 
-<h3>{{this.organType | titlecase}}</h3>
+<h3 class="font-bold">{{this.organType | titlecase}}</h3>
         <!--  steatosis slider -->
         <div class="mb-2"  *ngIf="this.organType == 'liver' ||  this.organType == 'pancreas'">
             <!-- <label for="minmax-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Degree of steatosis</label>
@@ -62,15 +62,15 @@
          <div class="mt-14" *ngIf="this.organType == 'liver' ||  this.organType == 'kidney'">
             <!-- <label for="minmax-range" class="block  font-medium text-gray-900 dark:text-white">Degree of perfusion</label> -->
             
-            <p for="minmax-range" class="">Degree of perfusion</p>
+            <p for="minmax-range" class="">Overall quality of perfusion</p>
             
             
-        <ngx-slider formControlName="perfusion" [options]="options"></ngx-slider>
+        <ngx-slider formControlName="perfusion" [options]="perfusionOptions"></ngx-slider>
         </div>
       
 <!-- transplantability -->
 <!-- <p class="mt-10 block  font-medium text-gray-900 dark:text-white">Transplantable?</p> -->
-<p class="mt-10">Transplantable?</p>
+<p class="mt-20">Transplantable?</p>
 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
         <div class="flex items-center pl-3">
