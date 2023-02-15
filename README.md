@@ -55,7 +55,7 @@ Deploying to a production style setup but on the local system. Examples of this 
 
 ### Production
 
-#### Creating a container instance on Oracle Cloud
+#### Pushing a container instance to Oracle Cloud
 
 
 1. Generate an auth token
