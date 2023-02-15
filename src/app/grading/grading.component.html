@@ -59,7 +59,10 @@
 
          <!--  perfusion slider -->
          <div class="mt-14" *ngIf="this.organType == 'liver' ||  this.organType == 'kidney'">
-            <label for="minmax-range" class="block  font-medium text-gray-900 dark:text-white">Degree of perfusion</label>
+            <!-- <label for="minmax-range" class="block  font-medium text-gray-900 dark:text-white">Degree of perfusion</label> -->
+            <p for="minmax-range" class="block  font-medium text-gray-900 dark:text-white">Degree of perfusion p</p>
+            <p for="minmax-range" class="">Degree of perfusion no styline</p>
+            
             
         <ngx-slider formControlName="perfusion" [options]="options"></ngx-slider>
         </div>
