@@ -151,6 +151,7 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
     }
   
     resetForm() {
+      this.errorMessage = ''
       this.form = new FormGroup({
         steatosis: new FormControl(2.5, [Validators.required]),
         perfusion: new FormControl(2.5, [Validators.required]),
