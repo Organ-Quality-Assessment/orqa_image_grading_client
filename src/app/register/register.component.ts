@@ -12,6 +12,7 @@ export class RegisterComponent {
 public registerForm: FormGroup | any;
 showAlert : boolean;
 message : String;
+errorMessage: String;
 
 constructor(
   private authService: AuthService, private router: Router
@@ -153,6 +154,8 @@ if (this.registerForm.get('liver').value || this.registerForm.get('kidney').valu
   )
 
 
+  } else {
+    this.errorMessage = 'Please complete all fields'
   }
   
 }
@@ -178,5 +181,10 @@ removeAlert() {
 
 goToPage(page: String) {
   this.router.navigate([page])
+}
+
+openGDPR() {
+  console.log('click')
+  window.open("https://www.ncl.ac.uk/data.protection/", "_blank")
 }
 }

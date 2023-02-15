@@ -113,7 +113,7 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
       this.form = new FormGroup({
         steatosis: new FormControl(2.5, [Validators.required]),
         perfusion: new FormControl(2.5, [Validators.required]),
-        transplantable: new FormControl(true, Validators.required),
+        transplantable: new FormControl(null, Validators.required),
         skip: new FormControl()
   
       })
@@ -154,7 +154,7 @@ this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
       this.form = new FormGroup({
         steatosis: new FormControl(2.5, [Validators.required]),
         perfusion: new FormControl(2.5, [Validators.required]),
-        transplantable: new FormControl(true, Validators.required),
+        transplantable: new FormControl(null, Validators.required),
         skip: new FormControl()
       })
     }
