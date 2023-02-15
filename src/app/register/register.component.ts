@@ -179,4 +179,9 @@ removeAlert() {
 goToPage(page: String) {
   this.router.navigate([page])
 }
+
+openGDPR() {
+  console.log('click')
+  window.open("https://www.ncl.ac.uk/data.protection/", "_blank")
+}
 }
