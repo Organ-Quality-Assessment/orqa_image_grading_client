@@ -36,7 +36,6 @@ or
 
 Run `ng serve` or `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
@@ -55,7 +54,28 @@ Deploying to a production style setup but on the local system. Examples of this 
 
 ### Production
 
-Deploying to the production system. Examples of this would include cloud, HPC or virtual machine. 
+#### Pushing a container instance to Oracle Cloud
+
+1. Generate an [auth token](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsgenerateauthtokens.htm) 
+
+2. Log into docker `docker login lhr.ocir.io` and provide your [Oracle credentials](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionslogintoocir.htm). Your username is in this format `<tenancy-namespace>/<username>`, e.g. `lrrho0j0b1ox/oracleidentitycloudservice/<email>`. The password is the auth token you generated.
+
+3. Create a container regsistry in Oracle and note the name.
+4. Build docker image using tag format required for the container registry, and using the appropriate Dockerfile for production or development compartments. For the development `docker build -f Dockerfile.staging -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .` and for production `docker build -f Dockerfile.production -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client-production:latest .`
+
+4. Push to registry: `docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest` or docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client-production:latest
+  
+If you already have a container instance set up based on the container registry you pushed, then you will need to restart that container. If you do not, see below instructions for creating one.
+Longer term, look at putting in a github action, this might help: https://github.com/oracle-actions/login-ocir 
+
+#### Creating a Container Instance
+
+In the Oracle Cloud web interface select Container Instances, check that you are in the correct compartment (i.e. production or development) and then click create. Ensure you are in the correct VCN and in the public subnet. 
+When you get to selecting a container image, the images you have pushed to the container registry should show up. If they do not then check they are in the correct compartment. If you have issues with permissions then the container registery can be changed from private (default) to public. There are no environment variables needed for this client. 
+
+To ensure that your container instance is working, you can view logs by navgating to the container instance page, then in the left hand menu under 'Resources' select containers, and click on the container you have just created. Under 'more actions' you can select to 'view logs'.
+
+The container will have a public IP address associated with it. Go to the IP in your browser to view the client.
 
 ## Usage
 
@@ -106,30 +126,3 @@ This work was funded by a grant from the UK Research Councils, EPSRC grant ref. 
 
 
 
-# OrqaImageGradingClient
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

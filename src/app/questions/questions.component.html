@@ -1,0 +1,67 @@
+
+
+<!-- Breadcrumb -->
+<nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <li class="inline-flex items-center">
+        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Start</span>
+      </li>
+      <li>
+        <div class="flex items-center">
+          <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Quality grading</span>
+        </div>
+      </li>
+      <li  aria-current="page">
+        <div class="flex items-center">
+          <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Real vs AI generated</span>
+        </div>
+      </li>
+      <li  aria-current="page">
+        <div class="flex items-center">
+          <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+          <span class="ml-1 text-sm font-medium text-primary-500 md:ml-2 dark:text-primary-400">Reseach questions</span>
+        </div>
+      </li>
+      
+        
+   
+    </ol>
+    <button  (click)="logout()" class="ml-4 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
+        Finish</button>
+  </nav>
+<form [formGroup]="form" class="m-2">
+    <!--  question 1 -->
+    <div class="mb-6">
+      <!-- <label for="photography" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">How important do you think photography is for evaluating organ quality?</label> -->
+      <p>How important do you think photography is for evaluating organ quality?</p>
+      <select id="photography" formControlName="photography" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option selected>Choose an option</option>
+        <option value="1">1 - not important</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="4">5 - very important</option>
+      </select>   </div>
+
+
+
+      <!--  question 2 -->
+    <!-- <div class="mb-6">
+      <label for="q2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">How valuable is the chest xray in thoracic transplantation and what do you look for?
+    </label>
+      <input type="text" id="q2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+    </div> -->
+    <!--  question 3 -->
+    <!-- <div class="mb-6">
+        <label for="q3" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Are there any aspects of organ retrieval imaging that we could address to make professional’s jobs easier?
+
+        </label>
+          <input type="text" id="q3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+     
+    </div> -->
+    <!--  end -->
+    <button (click)="this.submit()" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+  </form>
+  
