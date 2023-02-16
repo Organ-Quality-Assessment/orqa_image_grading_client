@@ -18,7 +18,7 @@ export class GradingComponent {
   imagesToGrade: any;
   currentImage= 0;
   numberImages;
-  url=environment.strapi_image_url
+
   public form: FormGroup
   organsToGradeString:any;
 
