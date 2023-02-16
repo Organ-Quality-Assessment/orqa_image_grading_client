@@ -36,7 +36,6 @@ or
 
 Run `ng serve` or `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
@@ -57,29 +56,14 @@ Deploying to a production style setup but on the local system. Examples of this 
 
 #### Pushing a container instance to Oracle Cloud
 
+1. Generate an [auth token](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsgenerateauthtokens.htm) 
 
-1. Generate an auth token
-https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsgenerateauthtokens.htm 
+2. Log into docker `docker login lhr.ocir.io` and provide your [Oracle credentials](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionslogintoocir.htm). Your username is in this format `<tenancy-namespace>/<username>`, e.g. `lrrho0j0b1ox/oracleidentitycloudservice/<email>`. The password is the auth token you generated.
 
-2. Log into docker with oracle creds:
-https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionslogintoocir.htm
+3. Create a container regsistry in Oracle and note the name.
+4. Build docker image using tag format required for the container registry, and using the appropriate Dockerfile for production or development compartments. For the development `docker build -f Dockerfile.staging -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .` and for production `docker build -f Dockerfile.production -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client-production:latest .`
 
-`docker login lhr.ocir.io`
-
-username in this format lrrho0j0b1ox/oracleidentitycloudservice/kate.court@ncl.ac.uk
-password is from the auth token you generated
-
-3. build docker image using tag format required br container registry
-
-`docker build -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .`
-
-4. push to registry
-
-`docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest`
-
-NB: We then had to move to the development compartment as this appeared in root
-- check on the Oracle cloud whether the container has been pushed to the correct
-  compartment. It is easily moved using the UI if not.
+4. Push to registry: `docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest`
   
 If you already have a container instance set up based on the container registry you pushed, then you will need to restart that container. If you do not, see below instructions for creating one.
 Longer term, look at putting in a github action, this might help: https://github.com/oracle-actions/login-ocir 
