@@ -61,9 +61,9 @@ Deploying to a production style setup but on the local system. Examples of this 
 2. Log into docker `docker login lhr.ocir.io` and provide your [Oracle credentials](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionslogintoocir.htm). Your username is in this format `<tenancy-namespace>/<username>`, e.g. `lrrho0j0b1ox/oracleidentitycloudservice/<email>`. The password is the auth token you generated.
 
 3. Create a container regsistry in Oracle and note the name.
-4. Build docker image using tag format required for the container registry, and using the appropriate Dockerfile for production or development compartments. For the development `docker build -f Dockerfile.staging -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest .` and for production `docker build -f Dockerfile.production -t lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client-production:latest .`
+4. Build docker image using tag format required for the container registry, and using the appropriate Dockerfile for production or development compartments. For the development `docker build -f Dockerfile.staging -t lhr.ocir.io/lrrho0j0b1ox/orqa-client:latest .` and for production `docker build -f Dockerfile.production -t lhr.ocir.io/lrrho0j0b1ox/orqa-client-production:latest .`
 
-4. Push to registry: `docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client:latest` or docker push lhr.ocir.io/lrrho0j0b1ox/orqa-containers/orqa-client-production:latest
+4. Push to registry: `docker push lhr.ocir.io/lrrho0j0b1ox/orqa-client:latest` or docker push lhr.ocir.io/lrrho0j0b1ox/orqa-client-production:latest
   
 If you already have a container instance set up based on the container registry you pushed, then you will need to restart that container. If you do not, see below instructions for creating one.
 Longer term, look at putting in a github action, this might help: https://github.com/oracle-actions/login-ocir 
