@@ -18,7 +18,7 @@ currentImage = 0;
 currentImageUrl;
 numberToShow;
 errorMessage: String;
-url=environment.strapi_image_url;
+
 
 constructor(
   private comparisonService: ComparisonService, 
