@@ -36,11 +36,11 @@ ngOnInit() {
 // })
 
 this.comparisonService.getRealAndArtificialImages().then(async (result: any[]) => {
-  console.log(result)
+
  this.numberToShow = result.length
   this.images = result
   this.currentImageUrl = await this.getImageUrl(this.images[0])
-  console.log(this.numberToShow)
+  
 
 })
 }
