@@ -57,7 +57,7 @@ export class AuthService {
       thoracic,
       contactable
    }
-   console.log(data)
+  
       return this.http.post(this.authURL + '/register', {
         email,
         password,
