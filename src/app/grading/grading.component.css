@@ -23,3 +23,10 @@
     display: none !important;
    
    } 
+
+   ::ng-deep .ngx-slider .ngx-slider-pointer.ngx-slider-active:after  {
+  
+    background-color: rgb(20 184 166) !important;
+    outline: 0 !important;
+   
+   } 

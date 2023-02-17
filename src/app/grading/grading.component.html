@@ -42,10 +42,10 @@
 <!-- FORMS -->
 
 
-<section class="mr-5">
+<section class="mx-8">
     <form [formGroup]="form" >
 
-<h3 class="font-bold">{{this.organType | titlecase}}</h3>
+<h3 class="font-bold mt-2">{{this.organType | titlecase}}</h3>
         <!--  steatosis slider -->
         <div class="mb-2"  *ngIf="this.organType == 'liver' ||  this.organType == 'pancreas'">
             <!-- <label for="minmax-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Degree of steatosis</label>
