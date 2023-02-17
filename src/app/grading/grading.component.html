@@ -33,19 +33,19 @@
   
 
 <!-- Body -->
-<div class="grid grid-cols-1 lg:grid-cols-2 mx-2 gap-3" *ngIf="imagesToGrade">
+<div class=" grid grid-cols-1 lg:grid-cols-2 mx-2 gap-3" *ngIf="imagesToGrade">
     <!-- <p >{{imagesToGrade[currentImage]['attributes']['filename']}}</p> -->
-<section class="col-span-1">
-    <img class="w-full" [src]="this.currentImageUrl">
+<section class="col-span-1 ">
+    <img class="mx-auto max-h-[800px]" [src]="this.currentImageUrl">
 </section>
    
 <!-- FORMS -->
 
 
-<section class="mr-5">
+<section class="mx-8">
     <form [formGroup]="form" >
 
-<h3 class="font-bold">{{this.organType | titlecase}}</h3>
+<h3 class="font-bold mt-2">{{this.organType | titlecase}}</h3>
         <!--  steatosis slider -->
         <div class="mb-2"  *ngIf="this.organType == 'liver' ||  this.organType == 'pancreas'">
             <!-- <label for="minmax-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Degree of steatosis</label>

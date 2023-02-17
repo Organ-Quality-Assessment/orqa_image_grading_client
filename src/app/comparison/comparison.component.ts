@@ -18,7 +18,10 @@ currentImage = 0;
 currentImageUrl;
 numberToShow;
 errorMessage: String;
+correctGuesses = 0;
 
+// flag to display images or results
+guessing = true;
 
 constructor(
   private comparisonService: ComparisonService, 
@@ -38,10 +41,9 @@ ngOnInit() {
 this.comparisonService.getRealAndArtificialImages().then(async (result: any[]) => {
 
  this.numberToShow = result.length
+
   this.images = result
   this.currentImageUrl = await this.getImageUrl(this.images[0])
-  
-
 })
 }
 
@@ -64,7 +66,9 @@ this.comparisonService.getRealAndArtificialImages().then(async (result: any[]) =
 
   async nextImage() {
   if (this.currentImage == this.numberToShow-1) {
-    this.router.navigate(['questions'])
+    // display score
+    this.guessing = false;
+    
   } else {
     this.currentImage +=1;
 
@@ -74,11 +78,19 @@ this.comparisonService.getRealAndArtificialImages().then(async (result: any[]) =
   }
 }
 
+finishedComparison() {
+  this.router.navigate(['questions'])
+}
+
 submit(response) {
 
     this.comparisonService.submit(this.images[this.currentImage], response)
     .subscribe({
       next: (resp) => {
+
+        // add to user's scores for fun
+        this.checkIfAnswerIsCorrect(response)
+
         this.nextImage();
       },
       error: (error) => {
@@ -86,6 +98,18 @@ submit(response) {
       }
     })
 
+}
+
+checkIfAnswerIsCorrect(guess) {
+  // guess is a string real, artificial or unsure
+  // only add to score if they have picked real or artificial
+  if (guess === 'real' || guess === 'artificial'){
+    const actualAnswer = this.images[this.currentImage]['real']
+    if ((guess === 'real' && actualAnswer === true) || (guess === 'artificial' && actualAnswer === false)) {
+      this.correctGuesses +=1
+    } 
+  }
+  console.log(this.correctGuesses)
 }
 
 skipToQuestions() {

@@ -1,5 +1,5 @@
 
-<div class="flex-col flex h-scre ">
+<div class="flex-col flex h-screen ">
 
 
 <!-- Breadcrumb -->
@@ -35,21 +35,36 @@
         Finish</button>
   </nav>
 
+  <div class="z-10 grid h-screen place-items-center" *ngIf="!guessing">
+  
+<h1
+class="font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+> {{correctGuesses}}/{{numberToShow}}
 
+</h1>
+   
+    <button (click)="finishedComparison()" type="button" class="bg-primary-500 text-white px-20 ml-6 rounded  w-auto ">
+      Next
+  </button>
+  </div>
+ 
   
 <!-- Image -->
 <!-- <div class=" grow place-content-center" *ngIf="images&& images.length > 0"> -->
    <!--  todo make image fill space and be responsive and not overflow screen -->
     <!-- <img  src="{{url + images[currentImage]['attributes']['image_file']['data']['attributes']['url']}}"> -->
-   <div>
+   
     
-   </div> 
- <img class="object-contain mb-2 mt-16" [style.max-height.px]="900" [src]="this.currentImageUrl">
+   
+ <img *ngIf="guessing" class="object-contain mb-2 mt-16 max-h-[700px] "  [src]="this.currentImageUrl">
    <!-- </div> -->
  
+
+
+   
     <!-- Answers -->
 
- <footer class="fixed bottom-0 w-full p-2 bg-white rounded-lg shadow flex items-center justify-center md:p-2 dark:bg-gray-800">
+ <footer *ngIf="guessing" class="fixed bottom-0 w-full p-2 bg-white rounded-lg shadow flex items-center justify-center md:p-2 dark:bg-gray-800">
       
         <div class="inline-flex w-full justify-center">
             <button (click)="submit('real')" type="button" class="bg-primary-500 text-white p-2 ml-6 rounded  w-auto">
@@ -64,9 +79,9 @@
         </div>
  
     </footer>
-  
-   
-   
+
+
+    
 
 {{errorMessage}}
 
