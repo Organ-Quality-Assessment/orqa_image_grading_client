@@ -3,12 +3,22 @@ Angular client for grading training data for the OrQA project.
 
 ## About
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin ante at eleifend eleifend. Sed non vestibulum nisi. Aliquam vel condimentum quam. Donec fringilla et purus at auctor. Praesent euismod vitae metus non consectetur. Sed interdum aliquet nisl at efficitur. Nulla urna quam, gravida eget elementum eget, mattis nec tortor. Fusce ut neque tellus. Integer at magna feugiat lacus porta posuere eget vitae metus.
+Transplantation is the best treatment for patients with organ failure irrespective of the organ required. Currently over 6,000
+patients are waiting in the United Kingdom. Focusing on kidney transplantation the figures are stark with a patient living twice
+as long with a transplant, when compared with dialysis, and over ten years a kidney transplant saves the NHS £420,000 per
+patient.    
 
-Curabitur a tempus arcu. Maecenas blandit risus quam, quis convallis justo pretium in. Suspendisse rutrum, elit at venenatis cursus, dolor ligula iaculis dui, ut dignissim enim justo at ligula. Donec interdum dignissim egestas. Nullam nec ultrices enim. Nam quis arcu tincidunt, auctor purus sit amet, aliquam libero. Fusce rhoncus lectus ac imperdiet varius. Sed gravida urna eros, ac luctus justo condimentum nec. Integer ultrices nibh in neque sagittis, at pretium erat pretium. Praesent feugiat purus id iaculis laoreet. Proin in tellus tristique, congue ante in, sodales quam. Sed imperdiet est tortor, eget vestibulum tortor pulvinar volutpat. In et pretium nisl.
+Organs donated for transplantation are sometimes not used because of concerns about infections or cancer, but most
+commonly because of worries that they won’t function adequately in the recipient and might lead directly to the patient dying. At
+the moment assessing organs for transplantation is subjective and depends on the skills of the surgical team. In the United
+Kingdom the rate of use of organs varies widely between centres, from 70% to 30%. This device aims to support all surgeons
+to use the achievable 70% of donated organs.
+
+This project will involve training machine learning models to score the quality of organs being considered for transplantation.
 
 ### Project Team
-Colin Wilson, Newcastle upon Tyne Hospitals NHS Foundation Trust  ([lcolin.wilson6@nhs.net](mailto:lcolin.wilson6@nhs.net))    
+Colin Wilson, Newcastle upon Tyne Hospitals NHS Foundation Trust  ([colin.wilson6@nhs.net](mailto:colin.wilson6@nhs.net))    
+Hassan Ugail, University of Bradford
 
 ### RSE Contact
 Kate Court
@@ -24,8 +34,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Prerequisites
 
-Install Angular: `npm install -g @angular/cli`.
-
+Install Angular: `npm install -g @angular/cli`. This application relies on an running the Strapi application, [orqa-image-grading-strapi](https://github.com/Organ-Quality-Assessment/orqa-image-grading-strapi) and a MySQL database. 
 
 ### Installation
 `npm install`
@@ -44,17 +53,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `cypress:run` to execute the end-to-end tests. 
 
 ## Deployment
 
-### Local
-
-Deploying to a production style setup but on the local system. Examples of this would include `venv`, `anaconda`, `Docker` or `minikube`. 
-
 ### Production
 
-#### Pushing a container instance to Oracle Cloud
+#### Pushing to an Oracle Cloud Container Instance
 
 1. Generate an [auth token](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsgenerateauthtokens.htm) 
 
@@ -63,7 +68,7 @@ Deploying to a production style setup but on the local system. Examples of this 
 3. Create a container regsistry in Oracle and note the name.
 4. Build docker image using tag format required for the container registry, and using the appropriate Dockerfile for production or development compartments. For the development `docker build -f Dockerfile.staging -t lhr.ocir.io/lrrho0j0b1ox/orqa-client:latest .` and for production `docker build -f Dockerfile.production -t lhr.ocir.io/lrrho0j0b1ox/orqa-client-production:latest .`
 
-4. Push to registry: `docker push lhr.ocir.io/lrrho0j0b1ox/orqa-client:latest` or docker push lhr.ocir.io/lrrho0j0b1ox/orqa-client-production:latest
+4. Push to registry: `docker push lhr.ocir.io/lrrho0j0b1ox/orqa-client:latest` or `docker push lhr.ocir.io/lrrho0j0b1ox/orqa-client-production:latest`
   
 If you already have a container instance set up based on the container registry you pushed, then you will need to restart that container. If you do not, see below instructions for creating one.
 Longer term, look at putting in a github action, this might help: https://github.com/oracle-actions/login-ocir 
@@ -79,12 +84,13 @@ The container will have a public IP address associated with it. Go to the IP in 
 
 ## Usage
 
-Any links to production environment, video demos and screenshots.
+Staging: http://132.145.25.173/ or http://transplant-dev.orqa.uk
+Production: http://132.145.25.210/ or http://transplant.orqa.uk 
 
 ## Roadmap
 
 - [x] Initial Research  
-- [ ] Minimum viable product <-- You are Here  
+- [x] Minimum viable product 
 - [ ] Alpha Release  
 - [ ] Feature-Complete Release  
 
