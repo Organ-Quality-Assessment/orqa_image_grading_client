@@ -5,7 +5,7 @@ on:
     branches: dev
 
 jobs:
-  login:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       -
@@ -26,4 +26,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
+          file: {context}/Dockerfile.staging
           tags: lhr.ocir.io/lrrho0j0b1ox/orqa-client:latest
