@@ -103,7 +103,7 @@ export class GradingComponent {
   
   
   this.numberImages= this.imagesToGrade.length
-  console.log(result)
+ 
 this.organType = this.imagesToGrade[0].organ.organ_type
 this.currentImageUrl = await this.getImageUrl(this.imagesToGrade[0])
  })
@@ -200,6 +200,7 @@ if (this.organType === 'liver') {
       }
     })
   } else {
+    
     this.displayError('Please complete all fields')
   }
 } else if (this.organType === 'pancreas') {
