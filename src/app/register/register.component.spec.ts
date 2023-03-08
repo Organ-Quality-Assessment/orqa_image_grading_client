@@ -15,6 +15,8 @@ describe('RegisterComponent', () => {
   // let authServiceStub: any
   let authServiceSpy: jasmine.SpyObj<AuthService>
 
+// todo update with new fields
+
 const emailTakenError = {
       "data": null,
       "error": {
@@ -53,7 +55,7 @@ const emailTakenError = {
     .compileComponents();
 
     fixture = TestBed.createComponent(RegisterComponent);
-    router = TestBed.get(Router)
+    router = TestBed.inject(Router)
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -118,7 +120,7 @@ it('username field validity when completed', () => {
         
       });
 
-it('should navigate to login page when submit completed form', () => {
+it('should navigate to grading page when submit completed form', () => {
   
   
   component.registerForm.patchValue({password: 'password'})
@@ -131,7 +133,7 @@ it('should navigate to login page when submit completed form', () => {
   component.onSubmit()
   console.error(component.message)
   
-  expect(routerSpy).toHaveBeenCalledWith(['login'])
+  expect(routerSpy).toHaveBeenCalledWith(['grading'])
   })
 
   // it('should not navigate and show error when service returns error', () => {

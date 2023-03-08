@@ -51,6 +51,7 @@ this.comparisonService.getRealAndArtificialImages().then(async (result: any[]) =
 
   async getImageUrl(image) {
   // get image as blob from strapi
+  // todo add error handling here
   const config = {
     headers: {
       'Authorization': 'Bearer ' + this.comparisonService.getSession().token
@@ -109,7 +110,7 @@ checkIfAnswerIsCorrect(guess) {
       this.correctGuesses +=1
     } 
   }
-  console.log(this.correctGuesses)
+  
 }
 
 skipToQuestions() {
