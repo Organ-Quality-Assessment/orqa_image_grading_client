@@ -1,6 +1,5 @@
 name: staging
 
-
 on:
   push:
     branches: dev
