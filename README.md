@@ -59,6 +59,8 @@ Run `ng cypress:run` to execute the end-to-end tests.
 
 ### Production
 
+There is now a GitHub Actions to build and push images to the Oracle Container Registry for dev and main branch. Once the Action is successful, restart the Container Instance through the OCI CLI or the UI. See instructions below if this fails.
+
 #### Pushing to an Oracle Cloud Container Instance
 
 1. Generate an [auth token](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsgenerateauthtokens.htm) 
