@@ -34,9 +34,9 @@ jobs:
           push: true
           file: Dockerfile.staging
           tags: lhr.ocir.io/lrrho0j0b1ox/orqa-client:latest        
-      - 
-        name: Restart container
-        uses: oracle-actions/run-oci-cli-command@v1.1.1
-        with:
-          command: container-instances container-instance restart --container-instance-id ocid1.computecontainerinstance.oc1.uk-london-1.anwgiljr6wufqiqa2dpi2zzdsbwbgwa4pd5woigjvebctx25znd4lbdficzq --debug
-          silent: false
+      # - 
+      #   name: Restart container
+      #   uses: oracle-actions/run-oci-cli-command@v1.1.1
+      #   with:
+      #     command: container-instances container-instance restart --container-instance-id ocid1.computecontainerinstance.oc1.uk-london-1.anwgiljr6wufqiqa2dpi2zzdsbwbgwa4pd5woigjvebctx25znd4lbdficzq --debug
+      #     silent: false
