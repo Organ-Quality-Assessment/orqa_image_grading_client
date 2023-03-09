@@ -51,11 +51,21 @@ constructor(
             
             this.router.navigate([page])
           } else {
-            const organString = this.buildStringFromCheckedOrgansCurrentlyGrading(resp['user'])
+// if liver or kidney selected direct to grading
+// todo add other organs as they are included in application
+if (resp['user']['liver'] || resp['user']['kidney']) {
+  const organString = this.buildStringFromCheckedOrgansCurrentlyGrading(resp['user'])
 
             // look at what organs people have said they would grade and add to navigation
             this.router.navigate(['grading'],
             {queryParams: {organs: organString}})
+
+} else {
+  // go to comparison
+  this.router.navigate(['comparison'])
+}
+            
+            
 
     
           }

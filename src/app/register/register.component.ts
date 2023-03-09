@@ -169,7 +169,7 @@ buildStringFromCheckedOrgansCurrentlyGrading() {
     organList.push('kidney')
   }
   let listString = organList.join(',')
-console.log(listString)
+
   return listString
   // todo in future as we add images to the tool expand on this
 }
