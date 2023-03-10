@@ -30,20 +30,17 @@ constructor(
   private sanitizer: DomSanitizer) {}
 
 ngOnInit() {
-//   // todo note that currently media in strapi is unsecured, eventually need to rectify this/ use oracle bucket direct access
-//   this.comparisonService.getImages().then((result) => {
-    
-//   // todo for now select 2 images randomly but this needs updating  
-//    this.images = _.sampleSize(result.data, this.numberToShow)
- 
-// })
-
+//  error handling if no images are returned
 this.comparisonService.getRealAndArtificialImages().then(async (result: any[]) => {
-
- this.numberToShow = result.length
+if (result && result.length > 0) {
+  this.numberToShow = result.length
 
   this.images = result
   this.currentImageUrl = await this.getImageUrl(this.images[0])
+} else {
+  //error message
+}
+ 
 })
 }
 

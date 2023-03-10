@@ -159,13 +159,13 @@ describe('LoginComponent', () => {
   })
 
   it('should remove alert when submit form called', () => {
-    component.message = 'Error message'
-    component.showAlert = true
-    component.onSubmit()
-  
-    expect(component.showAlert).toBeFalsy()
-    expect(component.message).toBe('')
-  
-  })
+  component.message = 'Error message'
+  component.showAlert = true
+  component.onSubmit()
+
+  expect(component.showAlert).toBeFalsy()
+  expect(component.message).toBe('')
+
+})
 
 });

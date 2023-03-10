@@ -18,35 +18,8 @@ export class GradingService {
   private URL = environment.strapi_url 
   constructor(private http: HttpClient) {}
 
-  imagesToGrade(organ: String) {
-    // todo generate list of n images from selected organ type ensuring even distribution of graders
-    // todo get images fron server or strapi from Oracle
-    // for now get all images direct from strapi
 
-
-
-  }
-
-  // submitLiverScore(quality: number, transplantable: boolean, image: any) {
-    
-  //   const headers = new HttpHeaders({
-  //     'Authorization': 'Bearer ' + this.getSession().token,
-  //     'content-type': 'application/json'
-  //   })
-
-  //   const data = {
-  //     data: {
-  //       quality,
-  //    transplantable,
-  //    image
-  //     }     
-  //  }
-
-  
-
-  //   // return this.http.post(this.URL + '/liver-scores', data, {headers: headers}).pipe(map(res => res))
-  //   return this.http.post(this.URL + '/scores', data, {headers: headers})
-  // }
+  // todo add error handling
 
   submitScore(perfusion: any, steatosis: any, transplantable: boolean, image: any, skip: any) {
     
