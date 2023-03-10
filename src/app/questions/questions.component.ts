@@ -27,12 +27,8 @@ export class QuestionsComponent {
 
     // submit answers once finalised and log user out
     if (this.form.get('photography').valid) {
-      if(this.form.get('photography').value === '1 - not important') {
-        this.form.get('photography').setValue('1')
-      }
-      else if(this.form.get('photography').value === '5 - very important') {
-        this.form.get('photography').setValue('5')
-      }
+     
+     this.correctFormattingFor1And5()
 this.questionService.submit(this.form.get('photography').value)
 .subscribe({
   next: () => {
@@ -47,10 +43,20 @@ this.router.navigate(['register'])
 
 
     } else {
+      //todo error message for empty field(s)
       console.log('problem with form')
     }
 
 
+  }
+
+  correctFormattingFor1And5() {
+    if(this.form.get('photography').value === '1 - not important') {
+      this.form.get('photography').setValue('1')
+    }
+    else if(this.form.get('photography').value === '5 - very important') {
+      this.form.get('photography').setValue('5')
+    }
   }
 
   logout() {
