@@ -1,7 +1,7 @@
 import { Injectable, ɵɵsetComponentScope } from '@angular/core';
 import axios from 'axios';
 import { environment } from 'src/environments/environment';
-import { User } from './models/user';
+import { User } from '../models/user';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Router } from '@angular/router';
 

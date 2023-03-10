@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { QuestionsService } from '../questions.service';
+import { AuthService } from '../services/auth.service';
+import { QuestionsService } from '../services/questions.service';
+
 
 @Component({
   selector: 'app-questions',

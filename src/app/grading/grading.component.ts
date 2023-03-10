@@ -5,9 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import axios from 'axios';
 import * as _ from 'cypress/types/lodash';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../auth.service';
-import { GradingService } from '../grading.service';
+import { AuthService } from '../services/auth.service';
+
 import { Options } from '@m0t0r/ngx-slider';
+import { GradingService } from '../services/grading.service';
 
 @Component({
   selector: 'app-grading',

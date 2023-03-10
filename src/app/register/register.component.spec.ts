@@ -3,7 +3,7 @@ import { ComponentFixture, ComponentFixtureNoNgZone, TestBed } from '@angular/co
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, of, Subject } from 'rxjs';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 
 import { RegisterComponent } from './register.component';
 

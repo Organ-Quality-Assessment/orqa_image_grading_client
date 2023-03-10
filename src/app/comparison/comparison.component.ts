@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ComparisonService } from '../comparison.service';
+
 import * as _ from 'lodash'
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import axios from 'axios';
+import { ComparisonService } from '../services/comparison.service';
 
 @Component({
   selector: 'app-comparison',
