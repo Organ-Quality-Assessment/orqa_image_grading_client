@@ -3,7 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { QuestionsService } from '../questions.service';
+import { QuestionsService } from '../services/questions.service';
+
 
 import { QuestionsComponent } from './questions.component';
 

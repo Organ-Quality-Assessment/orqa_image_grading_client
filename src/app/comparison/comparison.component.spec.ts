@@ -4,7 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { ComparisonService } from '../comparison.service';
+import { ComparisonService } from '../services/comparison.service';
+
 
 import { ComparisonComponent } from './comparison.component';
 
